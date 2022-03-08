@@ -1,0 +1,14 @@
+{
+  "folders": [
+    {
+      "path": "client"
+    },
+    {
+      "path": "hardhat"
+    }
+  ],
+  "settings": {
+    "mochaExplorer.files": ["hardhat/test/**/*.ts", "client/test/**/*.ts"],
+    "mochaExplorer.require": "ts-node/register"
+  }
+}
