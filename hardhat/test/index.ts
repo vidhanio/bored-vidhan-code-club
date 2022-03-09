@@ -1,7 +1,7 @@
 import {
   BoredVidhanCodeClub__factory,
   VidhanChatroom__factory,
-} from "../typechain";
+} from "../typechain-types";
 
 import { ethers } from "hardhat";
 import { expect } from "chai";

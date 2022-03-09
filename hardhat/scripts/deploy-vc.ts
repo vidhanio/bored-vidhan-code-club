@@ -1,15 +1,15 @@
-import { VidhanChat__factory } from "../typechain";
+import { Chatroom__factory } from "../typechain-types";
 import { ethers } from "hardhat";
 
 async function main() {
-  const vcFactory = (await ethers.getContractFactory(
-    "VidhanChat"
-  )) as VidhanChat__factory;
-  const vc = await vcFactory.deploy();
+  const factory = (await ethers.getContractFactory(
+    "Chatroom"
+  )) as Chatroom__factory;
+  const vc = await factory.deploy();
 
   await vc.deployed();
 
-  console.log("Deployed VidhanChat to:", vc.address);
+  console.log("Deployed Chatroom to:", vc.address);
 }
 
 main().catch((error) => {

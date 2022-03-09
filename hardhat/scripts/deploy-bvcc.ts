@@ -1,4 +1,4 @@
-import { BoredVidhanCodeClub__factory } from "../typechain";
+import { BoredVidhanCodeClub__factory } from "../typechain-types";
 import { ethers } from "hardhat";
 
 async function main() {
