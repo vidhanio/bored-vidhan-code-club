@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply bg-slate-100 dark:bg-slate-900 text-slate-900 dark:text-slate-100;
+  }
+
+  button {
+    @apply p-2 bg-slate-300 dark:hover:bg-slate-800 hover:bg-slate-200 transition-colors dark:bg-slate-700 rounded-md border-transparent ring-offset-2 ring-offset-slate-100 dark:ring-offset-slate-900 ring-2 ring-violet-500;
+  }
+}
