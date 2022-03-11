@@ -1,5 +1,5 @@
 {
-  "name": "client",
+  "name": "@vidhanio/web3-client",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -20,7 +20,8 @@
     "tailwindcss": "^3.0.23",
     "tslib": "^2.3.1",
     "typescript": "^4.5.4",
-    "vite": "^2.8.0"
+    "vite": "^2.8.0",
+    "@vidhanio/web3-hardhat": "0.0.0"
   },
   "dependencies": {
     "ethers": "^5.6.0"
