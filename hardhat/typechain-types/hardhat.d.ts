@@ -52,10 +52,6 @@ declare module "hardhat/types/runtime" {
       name: "Chatroom",
       signerOrOptions?: ethers.Signer | FactoryOptions
     ): Promise<Contracts.Chatroom__factory>;
-    getContractFactory(
-      name: "VidhanChatroom",
-      signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.VidhanChatroom__factory>;
 
     getContractAt(
       name: "Ownable",
@@ -107,11 +103,6 @@ declare module "hardhat/types/runtime" {
       address: string,
       signer?: ethers.Signer
     ): Promise<Contracts.Chatroom>;
-    getContractAt(
-      name: "VidhanChatroom",
-      address: string,
-      signer?: ethers.Signer
-    ): Promise<Contracts.VidhanChatroom>;
 
     // default types
     getContractFactory(

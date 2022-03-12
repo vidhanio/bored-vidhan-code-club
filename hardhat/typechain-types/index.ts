@@ -11,7 +11,6 @@ export type { ERC165 } from "./ERC165";
 export type { IERC165 } from "./IERC165";
 export type { BoredVidhanCodeClub } from "./BoredVidhanCodeClub";
 export type { Chatroom } from "./Chatroom";
-export type { VidhanChatroom } from "./VidhanChatroom";
 
 export { Ownable__factory } from "./factories/Ownable__factory";
 export { ERC721__factory } from "./factories/ERC721__factory";
@@ -23,4 +22,3 @@ export { ERC165__factory } from "./factories/ERC165__factory";
 export { IERC165__factory } from "./factories/IERC165__factory";
 export { BoredVidhanCodeClub__factory } from "./factories/BoredVidhanCodeClub__factory";
 export { Chatroom__factory } from "./factories/Chatroom__factory";
-export { VidhanChatroom__factory } from "./factories/VidhanChatroom__factory";
