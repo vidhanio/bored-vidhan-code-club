@@ -10,7 +10,7 @@
   import type { BoredVidhanCodeClub } from "@vidhanio/web3-hardhat/typechain-types";
   import BVCC from "@vidhanio/web3-hardhat/artifacts/contracts/BoredVidhanCodeClub.sol/BoredVidhanCodeClub.json";
 
-  const contractAddress = "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512";
+  const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
 
   const provider = new ethers.providers.Web3Provider(window.ethereum);
 
@@ -37,7 +37,7 @@
   <WalletBalance />
 
   <div class="flex flex-row gap-8 items-center justify-center flex-wrap">
-    {#each Array.from(Array(totalMinted + 1).keys()) as _, tokenId (tokenId)}
+    {#each Array.from(Array(totalMinted + 1).keys()) as tokenId (tokenId)}
       <div>
         <NFTImage {tokenId} {contract} {signer} {getCount} />
       </div>
