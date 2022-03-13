@@ -1,5 +1,5 @@
 {
-  "name": "@vidhanio/web3-hardhat",
+  "name": "@vidhanio/web3-playground-hardhat",
   "private": true,
   "version": "0.0.0",
   "devDependencies": {

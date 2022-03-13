@@ -1,5 +1,5 @@
 {
-  "name": "@vidhanio/web3-client",
+  "name": "@vidhanio/web3-playground-client",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -12,7 +12,7 @@
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^1.0.0-next.30",
     "@tsconfig/svelte": "^3.0.0",
-    "@vidhanio/web3-hardhat": "0.0.0",
+    "@vidhanio/web3-playground-hardhat": "0.0.0",
     "autoprefixer": "^10.4.2",
     "postcss": "^8.4.8",
     "svelte": "^3.44.0",

@@ -2,7 +2,7 @@
   import { createEventDispatcher, onMount } from "svelte";
 
   import type { JsonRpcSigner } from "@ethersproject/providers";
-  import type { BoredVidhanCodeClub } from "@vidhanio/web3-hardhat/typechain-types";
+  import type { BoredVidhanCodeClub } from "@vidhanio/web3-playground-hardhat/typechain-types";
   import { ethers } from "ethers";
 
   export let tokenId: number;

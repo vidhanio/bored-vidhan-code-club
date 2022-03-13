@@ -3,5 +3,6 @@
   "workspaces": [
     "client",
     "hardhat"
-  ]
+  ],
+  "packageManager": "yarn@3.2.0"
 }

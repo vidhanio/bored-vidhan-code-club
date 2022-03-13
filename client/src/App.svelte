@@ -7,8 +7,8 @@
   import WalletBalance from "./lib/WalletBalance.svelte";
   import NFTImage from "./lib/NFTImage.svelte";
 
-  import type { BoredVidhanCodeClub } from "@vidhanio/web3-hardhat/typechain-types";
-  import BVCC from "@vidhanio/web3-hardhat/artifacts/contracts/BoredVidhanCodeClub.sol/BoredVidhanCodeClub.json";
+  import type { BoredVidhanCodeClub } from "@vidhanio/web3-playground-hardhat/typechain-types";
+  import BVCC from "@vidhanio/web3-playground-hardhat/artifacts/contracts/BoredVidhanCodeClub.sol/BoredVidhanCodeClub.json";
 
   const contractAddress = "0x5FbDB2315678afecb367f032d93F642f64180aa3";
 
