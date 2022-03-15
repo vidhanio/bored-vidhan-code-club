@@ -2,7 +2,8 @@
   "private": true,
   "workspaces": [
     "client",
-    "hardhat"
+    "hardhat",
+    "images"
   ],
   "packageManager": "yarn@3.2.0"
 }
