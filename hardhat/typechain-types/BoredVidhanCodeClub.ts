@@ -24,16 +24,14 @@ export interface BoredVidhanCodeClubInterface extends utils.Interface {
     "approve(address,uint256)": FunctionFragment;
     "balanceOf(address)": FunctionFragment;
     "count()": FunctionFragment;
-    "existingURIs(string)": FunctionFragment;
     "getApproved(uint256)": FunctionFragment;
     "isApprovedForAll(address,address)": FunctionFragment;
-    "isContentOwned(string)": FunctionFragment;
+    "mint()": FunctionFragment;
     "name()": FunctionFragment;
     "owner()": FunctionFragment;
     "ownerOf(uint256)": FunctionFragment;
-    "payToMint(address,string)": FunctionFragment;
     "renounceOwnership()": FunctionFragment;
-    "safeMint(address,string)": FunctionFragment;
+    "safeMint(address)": FunctionFragment;
     "safeTransferFrom(address,address,uint256)": FunctionFragment;
     "setApprovalForAll(address,bool)": FunctionFragment;
     "supportsInterface(bytes4)": FunctionFragment;
@@ -50,10 +48,6 @@ export interface BoredVidhanCodeClubInterface extends utils.Interface {
   encodeFunctionData(functionFragment: "balanceOf", values: [string]): string;
   encodeFunctionData(functionFragment: "count", values?: undefined): string;
   encodeFunctionData(
-    functionFragment: "existingURIs",
-    values: [string]
-  ): string;
-  encodeFunctionData(
     functionFragment: "getApproved",
     values: [BigNumberish]
   ): string;
@@ -61,10 +55,7 @@ export interface BoredVidhanCodeClubInterface extends utils.Interface {
     functionFragment: "isApprovedForAll",
     values: [string, string]
   ): string;
-  encodeFunctionData(
-    functionFragment: "isContentOwned",
-    values: [string]
-  ): string;
+  encodeFunctionData(functionFragment: "mint", values?: undefined): string;
   encodeFunctionData(functionFragment: "name", values?: undefined): string;
   encodeFunctionData(functionFragment: "owner", values?: undefined): string;
   encodeFunctionData(
@@ -72,17 +63,10 @@ export interface BoredVidhanCodeClubInterface extends utils.Interface {
     values: [BigNumberish]
   ): string;
   encodeFunctionData(
-    functionFragment: "payToMint",
-    values: [string, string]
-  ): string;
-  encodeFunctionData(
     functionFragment: "renounceOwnership",
     values?: undefined
   ): string;
-  encodeFunctionData(
-    functionFragment: "safeMint",
-    values: [string, string]
-  ): string;
+  encodeFunctionData(functionFragment: "safeMint", values: [string]): string;
   encodeFunctionData(
     functionFragment: "safeTransferFrom",
     values: [string, string, BigNumberish]
@@ -113,10 +97,6 @@ export interface BoredVidhanCodeClubInterface extends utils.Interface {
   decodeFunctionResult(functionFragment: "balanceOf", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "count", data: BytesLike): Result;
   decodeFunctionResult(
-    functionFragment: "existingURIs",
-    data: BytesLike
-  ): Result;
-  decodeFunctionResult(
     functionFragment: "getApproved",
     data: BytesLike
   ): Result;
@@ -124,14 +104,10 @@ export interface BoredVidhanCodeClubInterface extends utils.Interface {
     functionFragment: "isApprovedForAll",
     data: BytesLike
   ): Result;
-  decodeFunctionResult(
-    functionFragment: "isContentOwned",
-    data: BytesLike
-  ): Result;
+  decodeFunctionResult(functionFragment: "mint", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "name", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "owner", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "ownerOf", data: BytesLike): Result;
-  decodeFunctionResult(functionFragment: "payToMint", data: BytesLike): Result;
   decodeFunctionResult(
     functionFragment: "renounceOwnership",
     data: BytesLike
@@ -240,8 +216,6 @@ export interface BoredVidhanCodeClub extends BaseContract {
 
     count(overrides?: CallOverrides): Promise<[BigNumber]>;
 
-    existingURIs(arg0: string, overrides?: CallOverrides): Promise<[boolean]>;
-
     getApproved(
       tokenId: BigNumberish,
       overrides?: CallOverrides
@@ -253,7 +227,9 @@ export interface BoredVidhanCodeClub extends BaseContract {
       overrides?: CallOverrides
     ): Promise<[boolean]>;
 
-    isContentOwned(uri: string, overrides?: CallOverrides): Promise<[boolean]>;
+    mint(
+      overrides?: PayableOverrides & { from?: string | Promise<string> }
+    ): Promise<ContractTransaction>;
 
     name(overrides?: CallOverrides): Promise<[string]>;
 
@@ -264,19 +240,12 @@ export interface BoredVidhanCodeClub extends BaseContract {
       overrides?: CallOverrides
     ): Promise<[string]>;
 
-    payToMint(
-      recipient: string,
-      metadataURI: string,
-      overrides?: PayableOverrides & { from?: string | Promise<string> }
-    ): Promise<ContractTransaction>;
-
     renounceOwnership(
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
     safeMint(
       to: string,
-      uri: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<ContractTransaction>;
 
@@ -336,8 +305,6 @@ export interface BoredVidhanCodeClub extends BaseContract {
 
   count(overrides?: CallOverrides): Promise<BigNumber>;
 
-  existingURIs(arg0: string, overrides?: CallOverrides): Promise<boolean>;
-
   getApproved(
     tokenId: BigNumberish,
     overrides?: CallOverrides
@@ -349,7 +316,9 @@ export interface BoredVidhanCodeClub extends BaseContract {
     overrides?: CallOverrides
   ): Promise<boolean>;
 
-  isContentOwned(uri: string, overrides?: CallOverrides): Promise<boolean>;
+  mint(
+    overrides?: PayableOverrides & { from?: string | Promise<string> }
+  ): Promise<ContractTransaction>;
 
   name(overrides?: CallOverrides): Promise<string>;
 
@@ -357,19 +326,12 @@ export interface BoredVidhanCodeClub extends BaseContract {
 
   ownerOf(tokenId: BigNumberish, overrides?: CallOverrides): Promise<string>;
 
-  payToMint(
-    recipient: string,
-    metadataURI: string,
-    overrides?: PayableOverrides & { from?: string | Promise<string> }
-  ): Promise<ContractTransaction>;
-
   renounceOwnership(
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
   safeMint(
     to: string,
-    uri: string,
     overrides?: Overrides & { from?: string | Promise<string> }
   ): Promise<ContractTransaction>;
 
@@ -426,8 +388,6 @@ export interface BoredVidhanCodeClub extends BaseContract {
 
     count(overrides?: CallOverrides): Promise<BigNumber>;
 
-    existingURIs(arg0: string, overrides?: CallOverrides): Promise<boolean>;
-
     getApproved(
       tokenId: BigNumberish,
       overrides?: CallOverrides
@@ -439,7 +399,7 @@ export interface BoredVidhanCodeClub extends BaseContract {
       overrides?: CallOverrides
     ): Promise<boolean>;
 
-    isContentOwned(uri: string, overrides?: CallOverrides): Promise<boolean>;
+    mint(overrides?: CallOverrides): Promise<void>;
 
     name(overrides?: CallOverrides): Promise<string>;
 
@@ -447,15 +407,9 @@ export interface BoredVidhanCodeClub extends BaseContract {
 
     ownerOf(tokenId: BigNumberish, overrides?: CallOverrides): Promise<string>;
 
-    payToMint(
-      recipient: string,
-      metadataURI: string,
-      overrides?: CallOverrides
-    ): Promise<BigNumber>;
-
     renounceOwnership(overrides?: CallOverrides): Promise<void>;
 
-    safeMint(to: string, uri: string, overrides?: CallOverrides): Promise<void>;
+    safeMint(to: string, overrides?: CallOverrides): Promise<void>;
 
     "safeTransferFrom(address,address,uint256)"(
       from: string,
@@ -555,8 +509,6 @@ export interface BoredVidhanCodeClub extends BaseContract {
 
     count(overrides?: CallOverrides): Promise<BigNumber>;
 
-    existingURIs(arg0: string, overrides?: CallOverrides): Promise<BigNumber>;
-
     getApproved(
       tokenId: BigNumberish,
       overrides?: CallOverrides
@@ -568,7 +520,9 @@ export interface BoredVidhanCodeClub extends BaseContract {
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
-    isContentOwned(uri: string, overrides?: CallOverrides): Promise<BigNumber>;
+    mint(
+      overrides?: PayableOverrides & { from?: string | Promise<string> }
+    ): Promise<BigNumber>;
 
     name(overrides?: CallOverrides): Promise<BigNumber>;
 
@@ -579,19 +533,12 @@ export interface BoredVidhanCodeClub extends BaseContract {
       overrides?: CallOverrides
     ): Promise<BigNumber>;
 
-    payToMint(
-      recipient: string,
-      metadataURI: string,
-      overrides?: PayableOverrides & { from?: string | Promise<string> }
-    ): Promise<BigNumber>;
-
     renounceOwnership(
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
     safeMint(
       to: string,
-      uri: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<BigNumber>;
 
@@ -655,11 +602,6 @@ export interface BoredVidhanCodeClub extends BaseContract {
 
     count(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    existingURIs(
-      arg0: string,
-      overrides?: CallOverrides
-    ): Promise<PopulatedTransaction>;
-
     getApproved(
       tokenId: BigNumberish,
       overrides?: CallOverrides
@@ -671,9 +613,8 @@ export interface BoredVidhanCodeClub extends BaseContract {
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
-    isContentOwned(
-      uri: string,
-      overrides?: CallOverrides
+    mint(
+      overrides?: PayableOverrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     name(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -685,19 +626,12 @@ export interface BoredVidhanCodeClub extends BaseContract {
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
 
-    payToMint(
-      recipient: string,
-      metadataURI: string,
-      overrides?: PayableOverrides & { from?: string | Promise<string> }
-    ): Promise<PopulatedTransaction>;
-
     renounceOwnership(
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 
     safeMint(
       to: string,
-      uri: string,
       overrides?: Overrides & { from?: string | Promise<string> }
     ): Promise<PopulatedTransaction>;
 

@@ -1,0 +1,17 @@
+{
+  "image": "/img/5.png",
+  "attributes": [
+    {
+      "trait_type": "Eyes",
+      "value": "bored"
+    },
+    {
+      "trait_type": "Mouth",
+      "value": "sad"
+    },
+    {
+      "trait_type": "Hat",
+      "value": "cap"
+    }
+  ]
+}

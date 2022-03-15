@@ -1,6 +1,6 @@
 import {
   BoredVidhanCodeClub__factory,
-  VidhanChatroom__factory,
+  Chatroom__factory,
 } from "../typechain-types";
 
 import { ethers } from "hardhat";
@@ -33,11 +33,11 @@ describe("BoredVidhanCodeClub", () => {
   });
 });
 
-describe("VidhanChatroom", () => {
+describe("Chatroom", () => {
   it("should send messages", async function () {
     const factory = (await ethers.getContractFactory(
-      "VidhanChatroom"
-    )) as VidhanChatroom__factory;
+      "Chatroom"
+    )) as Chatroom__factory;
     const contract = await factory.deploy();
     await contract.deployed();
 

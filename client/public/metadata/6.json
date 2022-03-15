@@ -1,0 +1,17 @@
+{
+  "image": "/img/6.png",
+  "attributes": [
+    {
+      "trait_type": "Eyes",
+      "value": "evil"
+    },
+    {
+      "trait_type": "Mouth",
+      "value": "happy"
+    },
+    {
+      "trait_type": "Hat",
+      "value": "weird"
+    }
+  ]
+}

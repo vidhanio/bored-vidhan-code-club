@@ -5,3 +5,13 @@ declare global {
     ethereum: ExternalProvider;
   }
 }
+
+export type Metadata = {
+  image: string;
+  attributes: Attribute[];
+};
+
+export type Attribute = {
+  trait_type: string;
+  value: string;
+};

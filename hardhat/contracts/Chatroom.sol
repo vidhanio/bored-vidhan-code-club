@@ -5,6 +5,7 @@ contract Chatroom {
     struct User {
         address user;
         string name;
+        address[] chats;
     }
 
     struct Message {
@@ -37,7 +38,7 @@ contract Chatroom {
         return _chats[_chatID(user1, user2)];
     }
 
-    function _chatExists(address user1, address user2)
+    function _areFriends(address user1, address user2)
         internal
         view
         onlyValidPair(user1, user2)
@@ -61,8 +62,10 @@ contract Chatroom {
         _;
     }
 
-    modifier onlyExistingChat(address user1, address user2) {
-        require(_chatExists(user1, user2), "!chatExists");
+    modifier onlyFriends(address user1, address user2) {
+        require(isUser(user1), "user1 !isUser");
+        require(isUser(user2), "user2 !isUser");
+        require(_areFriends(user1, user2), "!chatExists");
         _;
     }
 
@@ -81,7 +84,10 @@ contract Chatroom {
     {
         require(bytes(message).length != 0, "message.length == 0");
 
-        Message[] storage chat = _chats[_chatID(msg.sender, to)];
-        chat.push(Message(msg.sender, message, block.timestamp));
+        _chats[_chatID(msg.sender, to)].push(
+            Message(msg.sender, message, block.timestamp)
+        );
+
+        _users[msg.sender].chats.push(to);
     }
 }

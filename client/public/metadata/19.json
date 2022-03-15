@@ -1,0 +1,17 @@
+{
+  "image": "/img/19.png",
+  "attributes": [
+    {
+      "trait_type": "Eyes",
+      "value": "scared"
+    },
+    {
+      "trait_type": "Mouth",
+      "value": "neutral"
+    },
+    {
+      "trait_type": "Hat",
+      "value": "weird"
+    }
+  ]
+}

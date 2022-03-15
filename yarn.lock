@@ -1551,8 +1551,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@vidhanio/web3-playground-images@workspace:images"
   dependencies:
+    "@types/node": ^17.0.21
     "@types/sharp": ^0.30.0
+    D: ^1.0.0
     sharp: ^0.30.3
+    typescript: ^4.6.2
   languageName: unknown
   linkType: soft
 
@@ -1560,6 +1563,13 @@ __metadata:
   version: 1.1.0
   resolution: "@yarnpkg/lockfile@npm:1.1.0"
   checksum: 05b881b4866a3546861fee756e6d3812776ea47fa6eb7098f983d6d0eefa02e12b66c3fff931574120f196286a7ad4879ce02743c8bb2be36c6a576c7852083a
+  languageName: node
+  linkType: hard
+
+"D@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "D@npm:1.0.0"
+  checksum: c7aefb83af9b98a04b31b3708a32f5f332183face1b2a6d9eed28b64688d863ca269e04f8b352fba0a8b893ff2aa858c7709352f372f4dd90dfb474a37d2a78d
   languageName: node
   linkType: hard
 

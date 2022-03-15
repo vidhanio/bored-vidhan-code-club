@@ -1,57 +1,68 @@
 <script lang="ts">
-  import { createEventDispatcher, onMount } from "svelte";
-
-  import type { JsonRpcSigner } from "@ethersproject/providers";
-  import type { BoredVidhanCodeClub } from "@vidhanio/web3-playground-hardhat/typechain-types";
   import { ethers } from "ethers";
+  import { count } from "../stores";
+  import type { Metadata } from "src/types";
 
   export let tokenId: number;
-  export let contract: BoredVidhanCodeClub;
-  export let signer: JsonRpcSigner;
-  export let getCount: () => Promise<void>;
-
-  const imageURI = `img/${tokenId}.jpg`;
-  const metadataURI = `metadata/${tokenId}.json`;
 
   let isMinted = false;
 
-  const getMintedStatus = async () => {
-    isMinted = await contract.isContentOwned(metadataURI);
+  let metadata: Metadata;
+
+  const getMetadata = async () => {
+    isMinted = tokenId < (await count.contract.count()).toNumber();
+    if (isMinted) {
+      const tokenURI = await count.contract.tokenURI(tokenId);
+      const json = await fetch(tokenURI);
+      metadata = await json.json();
+    }
   };
 
   const mintToken = async () => {
-    const conn = contract.connect(signer);
-    const result = await contract.payToMint(conn.address, metadataURI, {
+    count.contract.connect(count.signer);
+    const result = await count.contract.mint({
       value: ethers.utils.parseEther("0.05"),
     });
 
     await result.wait();
-    getMintedStatus();
+    isMinted = tokenId < (await count.contract.count()).toNumber();
 
-    getCount();
+    await count.update();
+    await getMetadata();
   };
 
-  const getURI = async () => {
-    alert(await contract.tokenURI(tokenId));
-  };
+  const showInfo = () => {
+    let text = "";
+    metadata.attributes.forEach((attr) => {
+      text += `${attr.trait_type}: ${attr.value}\n`;
+    });
 
-  onMount(async () => {
-    await getMintedStatus();
-  });
+    alert(text);
+  };
 </script>
 
 <div
   class="rounded-md flex items-center flex-col gap-8 bg-slate-200 dark:bg-slate-800 p-8"
 >
-  <img
-    class="w-64 h-64 aspect-square object-cover rounded-md"
-    src={isMinted ? imageURI : "img/placeholder.jpg"}
-    alt="nft"
-  />
+  {#await getMetadata()}
+    <img
+      class="w-64 h-64 aspect-square object-cover rounded-md"
+      src={"/img/placeholder.png"}
+      alt="nft"
+    />
+  {:then}
+    <img
+      class="w-64 h-64 aspect-square object-cover rounded-md"
+      src={metadata ? metadata.image : "/img/placeholder.png"}
+      alt="nft"
+    />
+  {/await}
+
   <p class="font-bold">ID #{tokenId}</p>
+
   {#if !isMinted}
     <button on:click={mintToken}>Mint</button>
   {:else}
-    <button on:click={getURI}>Taken! Show URI</button>
+    <button on:click={showInfo}>Taken! Show Info</button>
   {/if}
 </div>

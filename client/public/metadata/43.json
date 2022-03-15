@@ -1,0 +1,17 @@
+{
+  "image": "/img/43.png",
+  "attributes": [
+    {
+      "trait_type": "Eyes",
+      "value": "scared"
+    },
+    {
+      "trait_type": "Mouth",
+      "value": "happy"
+    },
+    {
+      "trait_type": "Hat",
+      "value": "rimmed"
+    }
+  ]
+}
