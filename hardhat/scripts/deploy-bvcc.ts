@@ -6,7 +6,6 @@ async function main() {
     "BoredVidhanCodeClub"
   )) as BoredVidhanCodeClub__factory;
   const bvcc = await bvccFactory.deploy();
-
   await bvcc.deployed();
 
   console.log("Deployed BoredVidhanCodeClub to:", bvcc.address);
