@@ -29,18 +29,13 @@ const config: HardhatUserConfig = {
     hardhat: {
       chainId: 1337,
     },
-    ropsten: {
-      url: process.env.ROPSTEN_URL || "",
-      accounts:
-        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
-    },
+  },
+  typechain: {
+    outDir: "./typechain",
   },
   gasReporter: {
     enabled: process.env.REPORT_GAS !== undefined,
     currency: "USD",
-  },
-  etherscan: {
-    apiKey: process.env.ETHERSCAN_API_KEY,
   },
 };
 

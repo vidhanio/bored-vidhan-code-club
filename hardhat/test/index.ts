@@ -1,4 +1,4 @@
-import { BoredVidhanCodeClub__factory } from "../typechain-types";
+import { BoredVidhanCodeClub__factory } from "../typechain";
 import { ethers } from "hardhat";
 import { expect } from "chai";
 
@@ -16,7 +16,7 @@ describe("BoredVidhanCodeClub", () => {
     expect(balance.toNumber()).to.equal(0);
 
     const newToken = await contract.mint({
-      value: ethers.utils.parseEther("0.5"),
+      value: ethers.utils.parseEther("0.05"),
     });
 
     await newToken.wait();
