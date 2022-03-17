@@ -5,6 +5,8 @@
   "scripts": {
     "postinstall": "yarn hardhat compile",
     "test": "yarn hardhat test",
+    "serve": "yarn hardhat node",
+    "build": "yarn hardhat compile",
     "start:bvcc": "yarn hardhat run scripts/deploy-bvcc.ts --network localhost"
   },
   "devDependencies": {

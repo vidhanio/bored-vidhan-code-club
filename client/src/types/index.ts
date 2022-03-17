@@ -7,6 +7,7 @@ declare global {
 }
 
 export type Metadata = {
+  name: string;
   image: string;
   attributes: Attribute[];
 };

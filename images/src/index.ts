@@ -1,5 +1,7 @@
 import sharp, { Sharp } from "sharp";
 
+import Hash from "ipfs-only-hash";
+import { fileURLToPath } from "url";
 import fs from "fs";
 
 const eyes = fs
@@ -54,12 +56,15 @@ eyes.forEach((eye) => {
 });
 
 const shuffled = infos.sort(() => Math.random() - 0.5);
-shuffled.forEach((info, i) => {
+shuffled.forEach(async (info, i) => {
   const { meta, img } = info;
-  img.toFile(`output/img/${i}.png`);
+  await img.toFile(`output/img/${i}.png`);
 
   const json = {
-    image: `img/${i}.png`,
+    name: `${meta.eye}-eyed ${meta.hat}-wearing ${meta.mouth}-mouth vidhan`,
+    image: `ipfs://${await Hash.of(fs.readFileSync(`output/img/${i}.png`), {
+      cidVersion: 1,
+    })}`,
     attributes: [
       {
         trait_type: "Eyes",
@@ -76,8 +81,5 @@ shuffled.forEach((info, i) => {
     ],
   };
 
-  fs.writeFileSync(
-    `./output/metadata/${i}.json`,
-    JSON.stringify(json, null, 2)
-  );
+  fs.writeFileSync(`./output/metadata/${i}`, JSON.stringify(json, null, 2));
 });
