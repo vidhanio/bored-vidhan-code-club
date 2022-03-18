@@ -28,9 +28,7 @@ yarn hardhat node
 # shell 1
 cd bored-vidhan-code-club/hardhat
 yarn hardhat run scripts/deploy-bvcc.ts --network localhost
-# copy the outputted contract address or do something like
-export CONTRACT_ADDRESS = 0xwhateverthatthingwasyoucopied
 cd ../client
-echo "CONTRACT_ADDRESS=\"$CONTRACT_ADDRESS\"" > .env
+# copy the outputted contract address into client/stores.ts as CONTRACT_ADDRESS
 yarn dev
 ```
