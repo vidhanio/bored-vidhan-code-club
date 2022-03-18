@@ -27,10 +27,6 @@ const config: HardhatUserConfig = {
     hardhat: {
       chainId: 1337,
     },
-    ropsten: {
-      url: process.env.ROPSTEN_API_URL,
-      accounts: [process.env.METAMASK_PRIVATE_KEY || ""],
-    },
     rinkeby: {
       url: process.env.RINKEBY_API_URL,
       accounts: [process.env.METAMASK_PRIVATE_KEY || ""],
