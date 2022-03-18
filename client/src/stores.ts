@@ -3,7 +3,7 @@ import type { BoredVidhanCodeClub } from "@web3-playground/hardhat/typechain";
 import { ethers } from "ethers";
 import { writable } from "svelte/store";
 
-const contractAddress = "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9";
+const CONTRACT_ADDRESS = "0x9183eA580fc45D74f065d3fc1036584bB86bf956";
 
 type Web3 = {
   contract: BoredVidhanCodeClub;
@@ -18,7 +18,7 @@ const createWeb3 = () => {
   const provider = new ethers.providers.Web3Provider(window.ethereum);
   const signer = provider.getSigner();
   const contract = new ethers.Contract(
-    contractAddress,
+    CONTRACT_ADDRESS,
     ABI.abi,
     signer
   ) as BoredVidhanCodeClub;
