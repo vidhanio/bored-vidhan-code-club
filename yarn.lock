@@ -39,6 +39,77 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@bored-vidhan-code-club/client@workspace:client":
+  version: 0.0.0-use.local
+  resolution: "@bored-vidhan-code-club/client@workspace:client"
+  dependencies:
+    "@bored-vidhan-code-club/hardhat": 0.0.0
+    "@sveltejs/vite-plugin-svelte": ^1.0.0-next.39
+    "@tsconfig/svelte": ^3.0.0
+    autoprefixer: ^10.4.4
+    dotenv: ^16.0.0
+    ethers: ^5.6.1
+    postcss: ^8.4.12
+    svelte: ^3.46.4
+    svelte-check: ^2.4.6
+    svelte-preprocess: ^4.10.4
+    tailwindcss: ^3.0.23
+    tslib: ^2.3.1
+    typescript: ^4.6.2
+    vite: ^2.8.6
+  languageName: unknown
+  linkType: soft
+
+"@bored-vidhan-code-club/hardhat@0.0.0, @bored-vidhan-code-club/hardhat@workspace:hardhat":
+  version: 0.0.0-use.local
+  resolution: "@bored-vidhan-code-club/hardhat@workspace:hardhat"
+  dependencies:
+    "@nomiclabs/hardhat-ethers": ^2.0.5
+    "@nomiclabs/hardhat-etherscan": ^3.0.3
+    "@nomiclabs/hardhat-waffle": ^2.0.3
+    "@openzeppelin/contracts": ^4.5.0
+    "@typechain/ethers-v5": ^9.0.0
+    "@typechain/hardhat": ^5.0.0
+    "@types/chai": ^4.3.0
+    "@types/mocha": ^9.1.0
+    "@types/node": ^17.0.21
+    "@typescript-eslint/eslint-plugin": ^5.15.0
+    "@typescript-eslint/parser": ^5.15.0
+    chai: ^4.3.6
+    dotenv: ^16.0.0
+    eslint: ^8.11.0
+    eslint-config-prettier: ^8.5.0
+    eslint-config-standard: ^16.0.3
+    eslint-plugin-import: ^2.25.4
+    eslint-plugin-node: ^11.1.0
+    eslint-plugin-prettier: ^4.0.0
+    eslint-plugin-promise: ^6.0.0
+    ethereum-waffle: ^4.0.0-alpha.0
+    ethers: ^5.6.1
+    hardhat: ^2.9.1
+    hardhat-gas-reporter: ^1.0.8
+    prettier: ^2.6.0
+    prettier-plugin-solidity: ^1.0.0-beta.19
+    solhint: ^3.3.7
+    solidity-coverage: ^0.7.20
+    ts-node: ^10.7.0
+    typechain: ^7.0.1
+    typescript: ^4.6.2
+  languageName: unknown
+  linkType: soft
+
+"@bored-vidhan-code-club/images@workspace:images":
+  version: 0.0.0-use.local
+  resolution: "@bored-vidhan-code-club/images@workspace:images"
+  dependencies:
+    "@types/node": ^17.0.21
+    "@types/sharp": ^0.30.0
+    ipfs-only-hash: ^4.0.0
+    sharp: ^0.30.3
+    typescript: ^4.6.2
+  languageName: unknown
+  linkType: soft
+
 "@cspotcode/source-map-consumer@npm:0.8.0":
   version: 0.8.0
   resolution: "@cspotcode/source-map-consumer@npm:0.8.0"
@@ -1623,77 +1694,6 @@ __metadata:
   checksum: 08d37fdfa23a6fe8139f1305313562ebad973f3fac01bcce2773b2bda5bcb0146dfdcf3cb6a722cf0a5f2ca0bc56a827eac8f1e7b3beddc548f654addf1fc34c
   languageName: node
   linkType: hard
-
-"@bored-vidhan-code-club/client@workspace:client":
-  version: 0.0.0-use.local
-  resolution: "@bored-vidhan-code-club/client@workspace:client"
-  dependencies:
-    "@sveltejs/vite-plugin-svelte": ^1.0.0-next.39
-    "@tsconfig/svelte": ^3.0.0
-    "@bored-vidhan-code-club/hardhat": 0.0.0
-    autoprefixer: ^10.4.4
-    dotenv: ^16.0.0
-    ethers: ^5.6.1
-    postcss: ^8.4.12
-    svelte: ^3.46.4
-    svelte-check: ^2.4.6
-    svelte-preprocess: ^4.10.4
-    tailwindcss: ^3.0.23
-    tslib: ^2.3.1
-    typescript: ^4.6.2
-    vite: ^2.8.6
-  languageName: unknown
-  linkType: soft
-
-"@bored-vidhan-code-club/hardhat@0.0.0, @bored-vidhan-code-club/hardhat@workspace:hardhat":
-  version: 0.0.0-use.local
-  resolution: "@bored-vidhan-code-club/hardhat@workspace:hardhat"
-  dependencies:
-    "@nomiclabs/hardhat-ethers": ^2.0.5
-    "@nomiclabs/hardhat-etherscan": ^3.0.3
-    "@nomiclabs/hardhat-waffle": ^2.0.3
-    "@openzeppelin/contracts": ^4.5.0
-    "@typechain/ethers-v5": ^9.0.0
-    "@typechain/hardhat": ^5.0.0
-    "@types/chai": ^4.3.0
-    "@types/mocha": ^9.1.0
-    "@types/node": ^17.0.21
-    "@typescript-eslint/eslint-plugin": ^5.15.0
-    "@typescript-eslint/parser": ^5.15.0
-    chai: ^4.3.6
-    dotenv: ^16.0.0
-    eslint: ^8.11.0
-    eslint-config-prettier: ^8.5.0
-    eslint-config-standard: ^16.0.3
-    eslint-plugin-import: ^2.25.4
-    eslint-plugin-node: ^11.1.0
-    eslint-plugin-prettier: ^4.0.0
-    eslint-plugin-promise: ^6.0.0
-    ethereum-waffle: ^4.0.0-alpha.0
-    ethers: ^5.6.1
-    hardhat: ^2.9.1
-    hardhat-gas-reporter: ^1.0.8
-    prettier: ^2.6.0
-    prettier-plugin-solidity: ^1.0.0-beta.19
-    solhint: ^3.3.7
-    solidity-coverage: ^0.7.20
-    ts-node: ^10.7.0
-    typechain: ^7.0.1
-    typescript: ^4.6.2
-  languageName: unknown
-  linkType: soft
-
-"@bored-vidhan-code-club/images@workspace:images":
-  version: 0.0.0-use.local
-  resolution: "@bored-vidhan-code-club/images@workspace:images"
-  dependencies:
-    "@types/node": ^17.0.21
-    "@types/sharp": ^0.30.0
-    ipfs-only-hash: ^4.0.0
-    sharp: ^0.30.3
-    typescript: ^4.6.2
-  languageName: unknown
-  linkType: soft
 
 "@yarnpkg/lockfile@npm:^1.1.0":
   version: 1.1.0
