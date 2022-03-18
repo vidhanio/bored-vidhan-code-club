@@ -1,9 +1,13 @@
 import ABI from "@bored-vidhan-code-club/hardhat/artifacts/contracts/BoredVidhanCodeClub.sol/BoredVidhanCodeClub.json";
 import type { BoredVidhanCodeClub } from "@bored-vidhan-code-club/hardhat/typechain";
+import dotenv from "dotenv";
 import { ethers } from "ethers";
 import { writable } from "svelte/store";
 
-const CONTRACT_ADDRESS = "0x9183eA580fc45D74f065d3fc1036584bB86bf956";
+dotenv.config();
+
+const CONTRACT_ADDRESS =
+  process.env.CONTRACT_ADDRESS || "0x9183eA580fc45D74f065d3fc1036584bB86bf956";
 
 type Web3 = {
   contract: BoredVidhanCodeClub;
