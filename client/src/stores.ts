@@ -1,5 +1,5 @@
-import ABI from "@web3-playground/hardhat/artifacts/contracts/BoredVidhanCodeClub.sol/BoredVidhanCodeClub.json";
-import type { BoredVidhanCodeClub } from "@web3-playground/hardhat/typechain";
+import ABI from "@bored-vidhan-code-club/hardhat/artifacts/contracts/BoredVidhanCodeClub.sol/BoredVidhanCodeClub.json";
+import type { BoredVidhanCodeClub } from "@bored-vidhan-code-club/hardhat/typechain";
 import { ethers } from "ethers";
 import { writable } from "svelte/store";
 

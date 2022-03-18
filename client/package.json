@@ -1,5 +1,5 @@
 {
-  "name": "@web3-playground/client",
+  "name": "@bored-vidhan-code-club/client",
   "version": "0.0.0",
   "private": true,
   "type": "module",
@@ -15,7 +15,7 @@
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^1.0.0-next.39",
     "@tsconfig/svelte": "^3.0.0",
-    "@web3-playground/hardhat": "0.0.0",
+    "@bored-vidhan-code-club/hardhat": "0.0.0",
     "autoprefixer": "^10.4.4",
     "dotenv": "^16.0.0",
     "postcss": "^8.4.12",

@@ -1624,13 +1624,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@web3-playground/client@workspace:client":
+"@bored-vidhan-code-club/client@workspace:client":
   version: 0.0.0-use.local
-  resolution: "@web3-playground/client@workspace:client"
+  resolution: "@bored-vidhan-code-club/client@workspace:client"
   dependencies:
     "@sveltejs/vite-plugin-svelte": ^1.0.0-next.39
     "@tsconfig/svelte": ^3.0.0
-    "@web3-playground/hardhat": 0.0.0
+    "@bored-vidhan-code-club/hardhat": 0.0.0
     autoprefixer: ^10.4.4
     dotenv: ^16.0.0
     ethers: ^5.6.1
@@ -1645,9 +1645,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@web3-playground/hardhat@0.0.0, @web3-playground/hardhat@workspace:hardhat":
+"@bored-vidhan-code-club/hardhat@0.0.0, @bored-vidhan-code-club/hardhat@workspace:hardhat":
   version: 0.0.0-use.local
-  resolution: "@web3-playground/hardhat@workspace:hardhat"
+  resolution: "@bored-vidhan-code-club/hardhat@workspace:hardhat"
   dependencies:
     "@nomiclabs/hardhat-ethers": ^2.0.5
     "@nomiclabs/hardhat-etherscan": ^3.0.3
@@ -1683,9 +1683,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@web3-playground/images@workspace:images":
+"@bored-vidhan-code-club/images@workspace:images":
   version: 0.0.0-use.local
-  resolution: "@web3-playground/images@workspace:images"
+  resolution: "@bored-vidhan-code-club/images@workspace:images"
   dependencies:
     "@types/node": ^17.0.21
     "@types/sharp": ^0.30.0
