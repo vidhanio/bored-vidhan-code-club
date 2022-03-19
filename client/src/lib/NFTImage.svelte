@@ -9,11 +9,24 @@
   let minted = false;
   let metadata: Metadata | undefined = undefined;
 
+  let loading = false;
+
+  const loaded = (fn: () => Promise<void>): (() => Promise<void>) => {
+    return async () => {
+      loading = true;
+      try {
+        await fn();
+      } finally {
+        loading = false;
+      }
+    };
+  };
+
   const updateMinted = () => {
     minted = tokenId < $web3.count;
   };
 
-  const updateMetadata = async () => {
+  const updateMetadata = loaded(async () => {
     if (minted) {
       const tokenURI = (await $web3.contract.tokenURI(tokenId)).replace(
         "ipfs://",
@@ -22,21 +35,22 @@
       const json = await fetch(tokenURI);
       metadata = await json.json();
     }
-  };
+  });
 
-  const mintToken = async () => {
+  const mintToken = loaded(async () => {
     $web3.contract.connect($web3.signer);
-    const result = await $web3.contract.mint({
+    const transaction = await $web3.contract.mint({
       value: ethers.utils.parseEther("0.05"),
     });
 
-    await result.wait();
+    await transaction.wait();
+    loading = false;
 
     await web3.updateCount();
 
     updateMinted();
     await updateMetadata();
-  };
+  });
 
   const showInfo = () => {
     if (!metadata) return;
@@ -65,23 +79,30 @@
       src={metadata.image.replace("ipfs://", "http://127.0.0.1:8080/ipfs/")}
       alt="nft"
     />
-  {:else if !minted}
-    <img
-      class="w-64 h-64 aspect-square object-cover rounded-md"
-      src="unminted.png"
-      alt="nft"
-    />
-  {:else}
+  {:else if loading || (!metadata && minted)}
     <img
       class="w-64 h-64 aspect-square object-cover rounded-md"
       src={"loading.gif"}
       alt="nft"
     />
+  {:else if !minted && !loading}
+    <img
+      class="w-64 h-64 aspect-square object-cover rounded-md"
+      src="unminted.png"
+      alt="nft"
+    />
   {/if}
 
-  {#if metadata && minted}
-    <p class="font-bold text-center max-w-fit">{metadata.name}</p>
-  {/if}
+  <p class="font-bold text-center max-w-fit">
+    {#if metadata && minted}
+      {metadata.name}
+    {:else if !minted}
+      Unminted
+    {:else if !metadata}
+      Loading...
+    {/if}
+  </p>
+
   <p class="font-bold">ID #{tokenId}</p>
 
   {#if !minted}

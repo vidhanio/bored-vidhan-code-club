@@ -7,42 +7,61 @@ const CONTRACT_ADDRESS = "0x9183eA580fc45D74f065d3fc1036584bB86bf956";
 
 type Web3 = {
   contract: BoredVidhanCodeClub;
+  account?: string;
   provider: ethers.providers.Web3Provider;
   signer: ethers.Signer;
   count: number;
 };
 
-const createWeb3 = () => {
+const createWeb3 = async () => {
   const { subscribe, set, update } = writable<Web3>();
 
-  const provider = new ethers.providers.Web3Provider(window.ethereum);
-  const signer = provider.getSigner();
-  const contract = new ethers.Contract(
-    CONTRACT_ADDRESS,
-    ABI.abi,
-    signer
-  ) as BoredVidhanCodeClub;
+  if (window.ethereum) {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = provider.getSigner();
+    const contract = new ethers.Contract(
+      CONTRACT_ADDRESS,
+      ABI.abi,
+      signer
+    ) as BoredVidhanCodeClub;
 
-  const updateCount = async (): Promise<void> => {
-    const count = await contract.count();
+    const [account] = (await window.ethereum.request?.({
+      method: "eth_accounts",
+    })) as string[];
 
-    update((contract) => ({
-      ...contract,
-      count: count.toNumber(),
-    }));
-  };
+    const updateAccount = async ([account]: string[]): Promise<void> => {
+      update((w) => ({ ...w, account }));
+    };
 
-  set({
-    contract,
-    provider,
-    signer,
-    count: 0,
-  });
+    const updateCount = async (): Promise<void> => {
+      const count = await contract.count();
 
-  return {
-    subscribe,
-    updateCount,
-  };
+      update((w) => ({
+        ...w,
+        count: count.toNumber(),
+      }));
+    };
+
+    set({
+      contract,
+      account,
+      provider,
+      signer,
+      count: 0,
+    });
+
+    return {
+      subscribe,
+      updateAccount,
+      updateCount,
+    };
+  } else {
+    return {
+      subscribe,
+      updateAccount: () => {},
+      updateCount: () => {},
+    };
+  }
 };
 
-export const web3 = createWeb3();
+export const web3 = await createWeb3();
