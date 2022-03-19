@@ -30,7 +30,7 @@
     if (minted) {
       const tokenURI = (await $web3.contract.tokenURI(tokenId)).replace(
         "ipfs://",
-        "http://127.0.0.1:8080/ipfs/"
+        "http://ipfs.io/ipfs/"
       );
       const json = await fetch(tokenURI);
       metadata = await json.json();
@@ -76,7 +76,7 @@
   {#if metadata && minted}
     <img
       class="w-64 h-64 aspect-square object-cover rounded-md"
-      src={metadata.image.replace("ipfs://", "http://127.0.0.1:8080/ipfs/")}
+      src={metadata.image.replace("ipfs://", "http://ipfs.io/ipfs/")}
       alt="nft"
     />
   {:else if loading || (!metadata && minted)}
